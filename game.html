@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Choose Difficulty</title>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="logo.ico" size="20px">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+	</head>
+		
+		<style>
+			@import "https://fonts.googleapis.com/css?family=Cherry+Swash";
+			@import "https://fonts.googleapis.com/css?family=Raleway";
+			@import url('https://fonts.googleapis.com/css?family=Raleway');
+		
+			body {
+						background-image: url('https://images.squarespace-cdn.com/content/v1/58b6f64f15d5db6cffb0b319/1548089942774-9YO8HHLD4QTYYMI46HYU/ke17ZwdGBToddI8pDm48kDSecG62D-PAcVbL0qn85St7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0scl71iiVnMuLeEyTFSXT3ohd_5WOdFA-tuiBuy3es1JQJu2MBCaZEpY43il8muo8g/RSFA+1+small.jpg?format=1500w');
+						background-repeat: no-repeat;
+						background-size: cover;
+						backdrop-filter: blur(2px);
+						font-family: Raleway;
+						color: white;
+						}
+						
+			.btn-primary {
+						width: 400px;
+						height: 80px;
+						font-size: 30px;
+						margin-top: 20px;
+						margin-left: 20px;
+						margin-right: 10px;
+						margin-bottom: 10px;
+						border-radius: 5px;
+						background-color: black;
+						border: 2px solid #DE4300;
+						}
+						
+			.btn-primary:hover {
+						background-color: #DE4300;
+						border: 2px solid #DE4300;
+						}
+						
+			.btn-danger{
+						width: 400px;
+						height: 80px;
+						font-size: 30px;
+						margin-top: 20px;
+						margin-left: 20px;
+						margin-right: 10px;
+						margin-bottom: 15px;
+						border-radius: 5px;
+						background-color: #DE4300;
+						border: 2px solid #DE4300;
+						}			
+			
+			.btn-danger:hover {
+						background-color: black;
+						border: 2px solid #DE4300;
+						}		
+						
+			.container{
+						width: 50%;
+						margin: auto;
+						white-space: nowrap;
+						display: inline-block;
+						text-align:center;
+						margin-top:10px;
+						}
+			h1{
+						font-size: 55px;
+						margin-top: 10px;
+						}
+		
+		
+		</style>
+		
+		<body><center>
+		
+			<div class="container">
+			
+					<h1><b> Choose Difficulty </b></h1>
+					
+						<form action="arcade.html">
+						<button class="btn btn-primary" >Arcade Mode</button>
+						</form>
+						<h4> Infinite Mode </h4>
+					
+					
+						<form action="medium.html">
+						<button class="btn btn-primary" >Medium</button>
+						</form>
+						<h4> 10 Seconds : 12 Questions </h4>
+					
+					
+						<form action="hard.html">
+						<button class="btn btn-primary" >Hard</button>
+						</form>
+						<h4> 5 Seconds : 16 Questions: </h4>
+					
+			</div>		
+					<div>
+						<form action="index.html">
+						<button class="btn btn-danger" type="submit" href="index.html"> Back </button> 
+						</form>
+					</div>
+		
+				
+            </div>
+			
+				
+		</body>
+		
+		<script>
+		
+		var timer;
+			function startTimer(duration, display) {
+			timer = duration;
+    
+			var minutes, seconds;
+			setInterval(function () {
+			
+			minutes = parseInt(timer / 60, 10)
+				seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+  var elementtt = seconds /10*100;
+        
+         document.getElementById('progressBar').style ="width:" + elementtt + "%";
+        
+        if (--timer < 0) {
+            timer = duration;
+            alert("You took too long to answer!");
+            over();
+        }
+    }, 1000);
+}
+
+function resetTimer() {
+  timer = 10 * 1;
+}
+
+function clear() {
+    
+    timer = 60*60;
+    
+}
+  function play() {
+    
+     
+     
+     $("#main").css({"display":"none"})
+     $("#quiz").css({"display":"block"})
+  
+    settimes = 10 * 1,
+        display = document.querySelector('#progressBar');
+    startTimer(settimes, display);
+    }
+
+</script>
+		
+		</script>
+		
+</html>
